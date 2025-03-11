@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Neguinho Corts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Lato:wght@100;300;400;700;900&family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="agendamento.css">
+</head>
+<body>
+    <nav>
+        <div class="logoNav">
+            <a href="index.html">
+                <img src="img/logofundo.png" alt="Neguinho Corts Logo">
+            </a>
+        </div>
+        <div class="listNav">
+            <ul>
+                <li><a href="index.html#equipe" class="menuNav">EQUIPE</a></li>
+                <li><a href="index.html#nossosCortes" class="menuNav">CORTES</a></li>
+                <li><a href="index.html#about" class="menuNav">SOBRE</a></li>
+                <li><a href="index.html#contact" class="menuNav">CONTATO</a></li>
+                <li><a href="agendamento.html" class="menuNav highlight">AGENDAR</a></li>
+            </ul>
+        </div>
+        <div class="mobileMenu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <section class="agendamento-hero">
+        <div class="container">
+            <h1>Agende seu Horário</h1>
+            <p>Escolha o serviço, barbeiro, data e horário de sua preferência</p>
+        </div>
+    </section>
+
+    <section class="agendamento-section">
+        <div class="container">
+            <div class="agendamento-container">
+                <div class="agendamento-sidebar">
+                    <div class="progress-container">
+                        <div class="progress-bar">
+                            <div class="progress" id="progress"></div>
+                            <div class="progress-step active" data-step="1">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <div class="progress-step" data-step="2">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="progress-step" data-step="3">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="progress-step" data-step="4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="progress-step" data-step="5">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-info">
+                        <div class="step-info-item active" data-step="1">
+                            <h3>Serviço</h3>
+                            <p>Escolha o serviço desejado</p>
+                        </div>
+                        <div class="step-info-item" data-step="2">
+                            <h3>Barbeiro</h3>
+                            <p>Selecione seu barbeiro preferido</p>
+                        </div>
+                        <div class="step-info-item" data-step="3">
+                            <h3>Data</h3>
+                            <p>Escolha a data para o atendimento</p>
+                        </div>
+                        <div class="step-info-item" data-step="4">
+                            <h3>Horário</h3>
+                            <p>Selecione o horário disponível</p>
+                        </div>
+                        <div class="step-info-item" data-step="5">
+                            <h3>Confirmação</h3>
+                            <p>Confirme seus dados e finalize</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="agendamento-content">
+                    <form id="agendamentoForm">
+                        <!-- Step 1: Serviço -->
+                        <div class="form-step active" data-step="1">
+                            <h2>Escolha o Serviço</h2>
+                            <div class="service-options">
+                                <div class="service-card" data-service="Corte Degradê">
+                                    <div class="service-img">
+                                        <img src="img/cortedegrade.jpg" alt="Corte Degradê">
+                                    </div>
+                                    <div class="service-info">
+                                        <h3>Corte Degradê</h3>
+                                        <p>Estilo moderno e elegante para todos os tipos de cabelo.</p>
+                                        <span class="service-price">R$ 35,00</span>
+                                    </div>
+                                </div>
+                                <div class="service-card" data-service="Barba">
+                                    <div class="service-img">
+                                        <img src="img/barba.jpg" alt="Barba">
+                                    </div>
+                                    <div class="service-info">
+                                        <h3>Barba</h3>
+                                        <p>Modelagem e cuidados especiais para sua barba.</p>
+                                        <span class="service-price">R$ 25,00</span>
+                                    </div>
+                                </div>
+                                <div class="service-card" data-service="Barba e Cabelo">
+                                    <div class="service-img">
+                                        <img src="img/barbaecabelo.jpg" alt="Barba e Cabelo">
+                                    </div>
+                                    <div class="service-info">
+                                        <h3>Barba e Cabelo</h3>
+                                        <p>Pacote completo para renovar seu visual.</p>
+                                        <span class="service-price">R$ 50,00</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="selectedService" name="service">
+                            <div class="form-buttons">
+                                <button type="button" class="next-btn" disabled>Próximo</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Barbeiro -->
+                        <div class="form-step" data-step="2">
+                            <h2>Escolha o Barbeiro</h2>
+                            <div class="barber-options">
+                                <div class="barber-card" data-barber="Allan">
+                                    <div class="barber-img">
+                                        <img src="img/7.jpeg" alt="Allan">
+                                    </div>
+                                    <div class="barber-info">
+                                        <h3>Allan</h3>
+                                        <p>Especialista em cortes clássicos e modernos</p>
+                                        <div class="barber-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                            <span>(4.5)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="barber-card" data-barber="Murilo">
+                                    <div class="barber-img">
+                                        <img src="img/7.jpeg" alt="Murilo">
+                                    </div>
+                                    <div class="barber-info">
+                                        <h3>Murilo</h3>
+                                        <p>Especialista em barbas e tratamentos capilares</p>
+                                        <div class="barber-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>(5.0)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="barber-card" data-barber="Carlos">
+                                    <div class="barber-img">
+                                        <img src="img/7.jpeg" alt="Carlos">
+                                    </div>
+                                    <div class="barber-info">
+                                        <h3>Carlos</h3>
+                                        <p>Especialista em estilos urbanos e contemporâneos</p>
+                                        <div class="barber-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                            <span>(4.0)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" id="selectedBarber" name="barber">
+                            <div class="form-buttons">
+                                <button type="button" class="prev-btn">Anterior</button>
+                                <button type="button" class="next-btn" disabled>Próximo</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Data -->
+                        <div class="form-step" data-step="3">
+                            <h2>Escolha a Data</h2>
+                            <div class="calendar-container">
+                                <div class="calendar-header">
+                                    <button type="button" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
+                                    <h3 id="currentMonth">Março 2024</h3>
+                                    <button type="button" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                                <div class="calendar-weekdays">
+                                    <div>Dom</div>
+                                    <div>Seg</div>
+                                    <div>Ter</div>
+                                    <div>Qua</div>
+                                    <div>Qui</div>
+                                    <div>Sex</div>
+                                    <div>Sáb</div>
+                                </div>
+                                <div class="calendar-days" id="calendarDays">
+                                    <!-- Dias serão gerados via JavaScript -->
+                                </div>
+                            </div>
+                            <input type="hidden" id="selectedDate" name="date">
+                            <div class="form-buttons">
+                                <button type="button" class="prev-btn">Anterior</button>
+                                <button type="button" class="next-btn" disabled>Próximo</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 4: Horário -->
+                        <div class="form-step" data-step="4">
+                            <h2>Escolha o Horário</h2>
+                            <div class="time-slots">
+                                <div class="time-slot" data-time="09:00">09:00</div>
+                                <div class="time-slot" data-time="10:00">10:00</div>
+                                <div class="time-slot" data-time="11:00">11:00</div>
+                                <div class="time-slot" data-time="12:00">12:00</div>
+                                <div class="time-slot" data-time="13:00">13:00</div>
+                                <div class="time-slot" data-time="14:00">14:00</div>
+                                <div class="time-slot" data-time="15:00">15:00</div>
+                                <div class="time-slot" data-time="16:00">16:00</div>
+                                <div class="time-slot" data-time="17:00">17:00</div>
+                                <div class="time-slot" data-time="18:00">18:00</div>
+                                <div class="time-slot" data-time="19:00">19:00</div>
+                            </div>
+                            <input type="hidden" id="selectedTime" name="time">
+                            <div class="form-buttons">
+                                <button type="button" class="prev-btn">Anterior</button>
+                                <button type="button" class="next-btn" disabled>Próximo</button>
+                            </div>
+                        </div>
+
+                        <!-- Step 5: Confirmação -->
+                        <div class="form-step" data-step="5">
+                            <h2>Confirme seus Dados</h2>
+                            <div class="confirmation-details">
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Serviço:</span>
+                                    <span class="confirmation-value" id="confirmService"></span>
+                                </div>
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Barbeiro:</span>
+                                    <span class="confirmation-value" id="confirmBarber"></span>
+                                </div>
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Data:</span>
+                                    <span class="confirmation-value" id="confirmDate"></span>
+                                </div>
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Horário:</span>
+                                    <span class="confirmation-value" id="confirmTime"></span>
+                                </div>
+                                <div class="confirmation-item">
+                                    <span class="confirmation-label">Preço:</span>
+                                    <span class="confirmation-value" id="confirmPrice"></span>
+                                </div>
+                            </div>
+                            <div class="personal-info">
+                                <h3>Seus Dados</h3>
+                                <div class="form-group">
+                                    <label for="clientName">Nome Completo</label>
+                                    <input type="text" id="clientName" name="clientName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientPhone">Telefone</label>
+                                    <input type="tel" id="clientPhone" name="clientPhone" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientEmail">Email</label>
+                                    <input type="email" id="clientEmail" name="clientEmail" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="clientNotes">Observações (opcional)</label>
+                                    <textarea id="clientNotes" name="clientNotes" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-buttons">
+                                <button type="button" class="prev-btn">Anterior</button>
+                                <button type="submit" class="submit-btn">Confirmar Agendamento</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="booking-success" id="bookingSuccess">
+        <div class="success-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Agendamento Confirmado!</h2>
+            <p>Seu horário foi agendado com sucesso.</p>
+            <p>Enviamos um email de confirmação com os detalhes do seu agendamento.</p>
+            <div class="success-details" id="successDetails">
+                <!-- Detalhes do agendamento serão inseridos aqui via JavaScript -->
+            </div>
+            <button class="back-home-btn">Voltar para a Página Inicial</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logofundo.png" alt="Neguinho Corts Logo">
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="index.html#equipe">Equipe</a></li>
+                        <li><a href="index.html#nossosCortes">Serviços</a></li>
+                        <li><a href="index.html#about">Sobre</a></li>
+                        <li><a href="index.html#contact">Contato</a></li>
+                        <li><a href="agendamento.html">Agendar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Neguinho Corts. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script src="script.js"></script>
+    <script src="agendamento.js"></script>
+</body>
+</html>
